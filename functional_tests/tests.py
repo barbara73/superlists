@@ -3,9 +3,14 @@ import os
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
+
+firefox_binary = FirefoxBinary('/usr/local/Caskroom/firefox')
+driver = webdriver.Firefox(firefox_binary=firefox_binary)
 
 MAX_WAIT = 10
 
