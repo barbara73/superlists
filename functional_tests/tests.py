@@ -7,22 +7,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
-from selenium.webdriver import FirefoxOptions
-
-
-
-# browser.get('http://example.com')
-
 MAX_WAIT = 10
 
 
 class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
-        opts = FirefoxOptions()
-        opts.add_argument("--headless")
-        self.browser = webdriver.Firefox(options=opts)
-        #self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox()
         staging_server = os.environ.get('STAGING_SERVER')
         if staging_server:
             self.live_server_url = f'http://{staging_server}'
